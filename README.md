@@ -1,46 +1,74 @@
-# Nazi Zombies: Portable
+# Nazi Zombies: Portable — Switch Emulator Edition
 
 # About
-This is the main/hub repository for NZ:P, a Call of Duty: Zombies "de-make" powered by various enhanced forks of the Quake engine, in development since 2009. This hub repository serves as a place to host nightly builds as well as a means of bug reporting on a game-wide (non-component) scale. See [the breakdown](#github-organzation-breakdown) for source code and other components.
+This is a **personal, Switch-focused fork** of [Nazi Zombies: Portable](https://github.com/nzp-team/nzportable) (NZ:P), the long-running Call of Duty: Zombies "de-make" powered by enhanced forks of the Quake engine. Where upstream NZ:P targets many platforms, **this edition builds and ships only the Nintendo Switch `.nro`**, and pairs it with a customized fork of the **Citron** Switch emulator so the whole experience — game *and* emulator — is tuned to run together.
 
-The game itself is feature-equivalent with Call of Duty: World at War on a generic level. Gameplay components are implemented with minor parity differences. Most World at War maps and their unique features are not yet represented. Various small additions and changes from Call of Duty: Black Ops are present as a means of gameplay smoothing, but not on a wide scale. NZ:P is, first and foremost, a Call of Duty: World at War remake.
+The goal of this fork is a heavily **remastered, feature-expanded** NZ:P for Switch: modern rendering effects, new gameplay systems and gamemodes, quality-of-life fixes, and emulator-side fixes for Switch 2 controllers and texture handling — while remaining faithful to NZ:P's World at War core.
 
-# Supported Platforms
-* Linux (x86, x86_64, armhf, arm64)
-* macOS†
-* Nintendo Switch
-* Nintendo 3DS
-* PlayStation Portable (both "PHAT" (PSP-1000) and "SLIM" (PSP-2000 and higher))
-* PlayStation VITA
-* [WebGL](https://nzp.gay)
-* Windows (x86, x86_64)
-* TI NSPIRE (CX II)
+> This is an unofficial fork. All credit for the base game goes to the NZ:P Team (see [Credits](#credits)). This repository contains code changes only — it does not redistribute Nintendo keys, firmware, or copyrighted map content.
 
-# GitHub Organzation Breakdown
-* [assets](https://github.com/nzp-team/assets): Game GFX, Sound, etc. data.
-* [vril-engine](https://github.com/nzp-team/vril-engine): The NZ:P engine for PlayStation Portable and Nintendo 3DS.
-* [fteqw](https://github.com/nzp-team/fteqw): The NZ:P Windows, Mac, Linux, and Web engine. Powered by Spike's FTEQW, with minimal changes.
-* [quakespasm](https://github.com/nzp-team/quakespasm): The NZ:P Nintendo Switch and PS VITA engine, forked from QuakespasmNX.
-* [quakec](https://github.com/nzp-team/quakec): The game-side code for things like weapons and Perk machines.
-* [tools](https://github.com/nzp-team/tools): Misc. development tools.
-* [toolbox](https://github.com/nzp-team/toolbox): AiO Development suite for map makers and contributors.
+# What's Different in This Fork
+Everything below is **new or changed** relative to upstream NZ:P, implemented across the engine (Quakespasm), the game code (QuakeC), and the companion Citron emulator.
 
-# Screenshots
+### Rendering & Visuals
+* **Graphics Quality presets** — one-tap Performance / Balanced / Quality master toggle that scales the heavy effects together (SSAA, AO, bloom, motion blur).
+* **SSAA** supersampling anti-aliasing (selectable 2×/3×/4×).
+* **SSAO** screen-space ambient occlusion (soft contact shadows).
+* **Motion blur** — unified per-object velocity buffer (zombies, gun, limbs) plus camera/world and rain blur.
+* **Bloom, vignette, filmic tonemap & colour-grade** presets, contrast/saturation sliders, optional film grain.
+* **Per-model lighting upgrades** — real world-space directional lighting from the lightmap, normal-based contour/cavity shading, Fresnel + Blinn-Phong specular/gloss (e.g. the gold M1911).
+* **Zombie eye glow** — procedural fullbright eye glow with selectable colours that read through fog and darkness.
+* **Soft blob contact shadows** under models.
+* **Muzzle flash** that leans with the weapon, plus a real warm muzzle dynamic light.
+* **Viewmodel FOV auto-tracking** so the gun never warps at high FOV / ADS.
+* **NDU weather** — real sky-cast lightning, rain, and wet-floor puddle reflections (toggleable).
+* **Town lava remaster** — animated molten surface (slow flicker + hotspots), rising embers/fire and periodic lava spurts, darkened ambience, and a dimmed skybox for a dramatic glow.
 
-<center>
-    <p float="left">
-        <img src="screenshots/0.webp" width="400" />
-        <img src="screenshots/1.webp" width="400" /> 
-    </p>
-    <p float="left">
-        <img src="screenshots/2.webp" width="400" />
-        <img src="screenshots/3.webp" width="400" /> 
-    </p>
-</center>
+### Gameplay & Modes
+* **New gamemodes** — Cranked (kill-timer level stacks + Meltdown bleed), Skull Ball, Hardpoint, plus fixes/additions across existing modes.
+* **Perk & progression systems** — Deadeye perk (headshot-points scaling) with the "Locked In" achievement, "Packed Or Nothing" achievement, Bartering King wall-buy discount, and a Switch-side achievement system with persistent saves.
+* **MG42 buyable turret** trap.
+* **Golden M1911** all-achievement reward weapon.
+* **Co-op fixes & features** — revive softlock fix, on-screen-keyboard team chat, correct per-player points display, Mystery Box "pass to team" offers, akimbo second-weapon fix.
+* **Town lava damage** — standing on the lava burns you (5 HP/sec) with a flame sound and hurt feedback.
+* **Tactical lean** (D-pad peek while aiming) and a red hit-marker on kills.
+
+### Controls & Input
+* **Nintendo Switch 2 Joy-Con 2** support via the companion emulator (proper detection, naming, and pairing).
+* **Per-weapon gun rumble** with an in-menu toggle and strength slider.
+* **Mappable GL/GR back buttons** in the emulator's input UI.
+* **On-screen keyboard** for in-menu text and in-game co-op chat.
+
+### Engine & Switch Stability
+* Larger heap so big maps don't flush weapon/perk models from the cache.
+* Numerous Switch-specific corruption/crash fixes (2nd-map texture corruption, Mystery Box reload crash, lamp/NPOT skin corruption, the long-standing particle "vertex explosion", multiplayer packet overflow that made zombies invisible, shutdown fixes).
+* Permanent sane config defaults so a wiped config still boots correctly.
+
+### Companion Emulator (Citron fork)
+* Switch 2 Joy-Con 2 driver support.
+* ETC2 texture format support.
+* Additive GL/GR button remapping in the input UI.
+* UI tweaks (forced dark theme, custom background, icon/poster handling).
+
+# Component Breakdown
+This edition spans several repositories (all under [CollectingW](https://github.com/CollectingW)):
+* **NZ-P-Switch-Emulator-Edition** *(this repo)* — the hub: packaging the Switch build and documenting the fork.
+* **[quakespasm](https://github.com/CollectingW/quakespasm)** — the NZ:P Switch engine (forked from Quakespasm-NX) with all rendering/engine changes.
+* **[quakec](https://github.com/CollectingW/quakec)** — the game-side code (weapons, perks, gamemodes, AI).
+* **Citron (emulator)** — the companion Switch emulator fork with controller/texture fixes.
+
+Game assets (GFX/sound/maps) come from the upstream [NZ:P assets](https://github.com/nzp-team/assets); this fork does not redistribute them.
+
+# Building (Nintendo Switch only)
+The Switch `.nro` is produced from the **quakespasm** engine via `Makefile.nx` (devkitPro / devkitA64) and the **quakec** progs via fteqcc. See those repositories for build steps. This hub's packaging scripts assemble the Switch release only.
 
 # Credits
+This fork stands entirely on the work of the NZ:P Team and the wider Quake community.
 
-#### Programming
+#### NZ:P Switch Emulator Edition
+CollectingW — fork maintainer; Switch rendering, gameplay, and emulator work.
+
+#### Original NZ:P — Programming
 Blubswillrule, Jukki, DR_Mabuse1981, Naievil, Cypress, Scatterbox
 
 #### Models
@@ -62,14 +90,19 @@ Blubswillrule, Biodude, Cypress, Marty P.
 * Ralf Willenbacher: nQuake
 * Azenn: GFX Assistance
 * BCDeshiG: Extensive Testing
+* The Citron emulator team
 
-# Stars
-<a href="https://www.star-history.com/?repos=nzp-team%2Fnzportable%2Cnzp-team%2Fvril-engine%2Cnzp-team%2Fquakec%2Cnzp-team%2Fassets%2Cnzp-team%2Fnzp-team.github.io&type=date&legend=top-left">
- <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/image?repos=nzp-team/nzportable%2Cnzp-team/vril-engine%2Cnzp-team/quakec%2Cnzp-team/assets%2Cnzp-team/nzp-team.github.io&type=date&theme=dark&legend=top-left" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/image?repos=nzp-team/nzportable%2Cnzp-team/vril-engine%2Cnzp-team/quakec%2Cnzp-team/assets%2Cnzp-team/nzp-team.github.io&type=date&legend=top-left" />
-   <img alt="Star History Chart" src="https://api.star-history.com/image?repos=nzp-team/nzportable%2Cnzp-team/vril-engine%2Cnzp-team/quakec%2Cnzp-team/assets%2Cnzp-team/nzp-team.github.io&type=date&legend=top-left" />
- </picture>
-</a>
+# License
+The NZ:P engine (Quakespasm) is GPLv2 and the Citron emulator is GPLv3; this fork inherits those licenses. See each component's `LICENSE`. No Nintendo keys, firmware, or copyrighted map content are included.
 
-†macOS 10.10 Yosemite is a supported platform via the FTEQW engine. This means NZ:P is compatible with macOS, however, cross-compiling FTEQW for macOS via docker or similar has proved a challenge, and as such pre-builds with NZ:Ps changes are not yet available.
+# Screenshots
+<center>
+    <p float="left">
+        <img src="screenshots/0.webp" width="400" />
+        <img src="screenshots/1.webp" width="400" /> 
+    </p>
+    <p float="left">
+        <img src="screenshots/2.webp" width="400" />
+        <img src="screenshots/3.webp" width="400" /> 
+    </p>
+</center>
