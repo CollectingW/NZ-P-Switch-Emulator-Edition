@@ -58,8 +58,7 @@ This edition spans several repositories (all under [CollectingW](https://github.
 * **[quakespasm](https://github.com/CollectingW/quakespasm)** — the NZ:P Switch engine (forked from Quakespasm-NX) with all rendering/engine changes.
 * **[quakec](https://github.com/CollectingW/quakec)** — the game-side code (weapons, perks, gamemodes, AI).
 * **[Citron (emulator)](https://github.com/CollectingW/CI/releases)** — the companion Switch emulator fork with controller/texture/network fixes.
-
-Game assets (GFX/sound/maps) come from the upstream [NZ:P assets](https://github.com/nzp-team/assets); this fork does not redistribute them.
+* **[assets](https://github.com/CollectingW/assets); assets provided for game playability and credits to respective contributors.
 
 # Building (Nintendo Switch only)
 The Switch `.nro` is produced from the **quakespasm** engine via `Makefile.nx` (devkitPro / devkitA64) and the **quakec** progs via fteqcc. See those repositories for build steps. This hub's packaging scripts assemble the Switch release only.
