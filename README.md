@@ -45,6 +45,7 @@ Everything below is **new or changed** relative to upstream NZ:P, implemented ac
 * Permanent sane config defaults so a wiped config still boots correctly.
 
 ### Companion Emulator (Citron fork)
+DOWNLOAD HERE: https://github.com/CollectingW/CI/releases
 * Switch 2 Joy-Con 2 driver support.
 * ETC2 texture format support.
 * Additive GL/GR button remapping in the input UI.
@@ -55,7 +56,7 @@ This edition spans several repositories (all under [CollectingW](https://github.
 * **NZ-P-Switch-Emulator-Edition** *(this repo)* — the hub: packaging the Switch build and documenting the fork.
 * **[quakespasm](https://github.com/CollectingW/quakespasm)** — the NZ:P Switch engine (forked from Quakespasm-NX) with all rendering/engine changes.
 * **[quakec](https://github.com/CollectingW/quakec)** — the game-side code (weapons, perks, gamemodes, AI).
-* **Citron (emulator)** — the companion Switch emulator fork with controller/texture fixes.
+* **[Citron (emulator)](https://github.com/CollectingW/CI/releases)** — the companion Switch emulator fork with controller/texture/network fixes.
 
 Game assets (GFX/sound/maps) come from the upstream [NZ:P assets](https://github.com/nzp-team/assets); this fork does not redistribute them.
 
