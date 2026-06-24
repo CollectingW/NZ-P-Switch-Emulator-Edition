@@ -17,7 +17,7 @@ set -e
 BUILD_STRING="2.0.0-switch+$(date +'%Y%m%d%H%M%S')"
 
 # --- artifact sources (edit to match your fork's releases) ---
-ASSETS_URL="https://github.com/nzp-team/assets/releases/download/newest/nx-nzp-assets.zip"
+ASSETS_URL="https://github.com/CollectingW/assets/releases/download/newest/nx-nzp-assets.zip"
 QC_URL="https://github.com/CollectingW/quakec/releases/download/bleeding-edge/standard-nzp-qc.zip"
 NRO_URL="https://github.com/CollectingW/quakespasm/releases/download/bleeding-edge/nx-nzp-nro.zip"
 
@@ -43,5 +43,13 @@ zip -q -r ../nzportable-switch.zip ./*
 cd ../
 mv nzportable-switch.zip ../out/
 cd ../
+
+# release metadata the workflow expects
+echo "$BUILD_STRING" > release_version.txt
+cat > changes.txt <<EOF
+NZ:P Switch Emulator Edition — automated nightly ($BUILD_STRING).
+
+Install: extract the \`nzportable\` folder from nzportable-switch.zip into \`/switch/\` on your SD card (or your emulator's sdmc) and launch via Homebrew.
+EOF
 
 echo "Done. Switch package: out/nzportable-switch.zip ($BUILD_STRING)"
