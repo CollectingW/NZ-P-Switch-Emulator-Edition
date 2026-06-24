@@ -50,6 +50,7 @@ DOWNLOAD HERE: https://github.com/CollectingW/CI/releases
 * ETC2 texture format support.
 * Additive GL/GR button remapping in the input UI.
 * UI tweaks (forced dark theme, custom background, icon/poster handling).
+* The ability to play Co-op with other players VIA Yuzu Online (api-fun.net) in lobbies through the emulator itself.
 
 # Component Breakdown
 This edition spans several repositories (all under [CollectingW](https://github.com/CollectingW)):
