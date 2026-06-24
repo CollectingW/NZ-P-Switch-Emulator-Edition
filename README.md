@@ -5,7 +5,7 @@ This is a **personal, Switch-focused fork** of [Nazi Zombies: Portable](https://
 
 The goal of this fork is a heavily **remastered, feature-expanded** NZ:P for Switch: modern rendering effects, new gameplay systems and gamemodes, quality-of-life fixes, and emulator-side fixes for Switch 2 controllers and texture handling — while remaining faithful to NZ:P's World at War core.
 
-> This is an unofficial fork. All credit for the base game goes to the NZ:P Team (see [Credits](#credits)). This repository contains code changes only — it does not redistribute Nintendo keys, firmware, or copyrighted map content.
+> This is an unofficial fork. All credit for the base game goes to the NZ:P Team (see [Credits](#credits)). This repository contains code changes only.
 
 # What's Different in This Fork
 Everything below is **new or changed** relative to upstream NZ:P, implemented across the engine (Quakespasm), the game code (QuakeC), and the companion Citron emulator.
@@ -93,7 +93,7 @@ Blubswillrule, Biodude, Cypress, Marty P.
 * The Citron emulator team
 
 # License
-The NZ:P engine (Quakespasm) is GPLv2 and the Citron emulator is GPLv3; this fork inherits those licenses. See each component's `LICENSE`. No Nintendo keys, firmware, or copyrighted map content are included.
+The NZ:P engine (Quakespasm) is GPLv2 and the Citron emulator is GPLv3; this fork inherits those licenses. See each component's `LICENSE`.
 
 # Screenshots
 <center>
