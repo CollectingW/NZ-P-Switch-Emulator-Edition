@@ -32,6 +32,11 @@ mkdir -p nx-assembly out
 cd nx-assembly
 mkdir assets
 unzip -q ../nx-nzp-assets.zip -d assets/
+# Base zip provides the stock maps/assets. Overlay the fork's custom content
+# (custom .bsp/.way/.hpt + skin/skybox/spec tweaks) so our versions win.
+git clone --depth 1 https://github.com/CollectingW/assets.git _fork_assets
+cp -rf _fork_assets/common/* assets/nzportable/nzp/
+rm -rf _fork_assets
 unzip -q ../standard-nzp-qc.zip -d assets/nzportable/nzp
 unzip -q ../nx-nzp-nro.zip -d "$PWD"
 echo "$BUILD_STRING" > assets/nzportable/nzp/version.txt
