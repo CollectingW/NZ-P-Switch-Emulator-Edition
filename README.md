@@ -25,13 +25,13 @@ Everything below is **new or changed** relative to upstream NZ:P, implemented ac
 * **Town lava remaster** — animated molten surface (slow flicker + hotspots), rising embers/fire and periodic lava spurts, darkened ambience, and a dimmed skybox for a dramatic glow.
 
 ### Gameplay & Modes
-* **New gamemodes** — Cranked (kill-timer level stacks + Meltdown bleed), Skull Ball, Hardpoint, plus fixes/additions across existing modes.
+* **New gamemodes** — Cranked (kill-timer level stacks + Meltdown bleed), Skull Ball, Hardpoint, Random, Mix, plus fixes/additions across existing modes.
 * **Perk & progression systems** — Deadeye perk (headshot-points scaling) with the "Locked In" achievement, "Packed Or Nothing" achievement, Bartering King wall-buy discount, and a Switch-side achievement system with persistent saves.
-* **MG42 buyable turret** trap.
-* **Golden M1911** all-achievement reward weapon.
+* **MG42 buyable turret** trap on Kino Der Toten.
+* **Golden M1911** all-achievement reward weapon (fully unlocked for now until all achievements are finished).
 * **Co-op fixes & features** — revive softlock fix, on-screen-keyboard team chat, correct per-player points display, Mystery Box "pass to team" offers, akimbo second-weapon fix.
 * **Town lava damage** — standing on the lava burns you (5 HP/sec) with a flame sound and hurt feedback.
-* **Tactical lean** (D-pad peek while aiming) and a red hit-marker on kills.
+* **Tactical lean** (Shoulder button peek while aiming) and a red hit-marker on kills.
 
 ### Controls & Input
 * **Nintendo Switch 2 Joy-Con 2** support via the companion emulator (proper detection, naming, and pairing).
