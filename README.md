@@ -15,7 +15,7 @@ Everything below is **new or changed** relative to upstream NZ:P, implemented ac
 * **SSAA** supersampling anti-aliasing (selectable 2×/3×/4×).
 * **SSAO** screen-space ambient occlusion (soft contact shadows).
 * **Motion blur** — unified per-object velocity buffer (zombies, gun, limbs) plus camera/world and rain blur.
-* **Bloom, vignette, filmic tonemap & colour-grade** presets, contrast/saturation sliders, optional film grain.
+* **Bloom, vignette, filmic tonemap & colour-grade** presets, contrast/saturation sliders.
 * **Per-model lighting upgrades** — real world-space directional lighting from the lightmap, normal-based contour/cavity shading, Fresnel + Blinn-Phong specular/gloss (e.g. the gold M1911).
 * **Zombie eye glow** — procedural fullbright eye glow with selectable colours that read through fog and darkness.
 * **Soft blob contact shadows** under models.
